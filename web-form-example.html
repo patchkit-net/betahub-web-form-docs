@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BetaHub Web Form</title>
+
+    <script src="https://unpkg.com/betahub-web-form@1.*.*/dist/bhwf.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/betahub-web-form@1.*.*/dist/bhwf.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/betahub-web-form@1.*.*/dist/dropzone.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        box-sizing: border-box;
+        min-height: calc(100vh - 40px);
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        font-family: "Assistant", sans-serif;
+      }
+      body > * {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 473px;
+        height: fit-content;
+      }
+      input,
+      textarea {
+        font-family: "Assistant", sans-serif;
+      }
+      p {
+        margin: 0;
+      }
+      [data-bhwf-progress] {
+        font-size: 22px;
+      }
+      ::-webkit-scrollbar,
+      [data-bhwf-input]::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+
+      ::-webkit-scrollbar-track,
+      [data-bhwf-input]::-webkit-scrollbar-track {
+        background: var(--bhwf-form-bg-color);
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb,
+      [data-bhwf-input]::-webkit-scrollbar-thumb {
+        cursor: default;
+        background: var(--bhwf-input-border-color);
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover,
+      [data-bhwf-input]::-webkit-scrollbar-thumb:hover {
+        background: var(--bhwf-input-border-color-focus);
+      }
+
+      ::-webkit-scrollbar-corner,
+      [data-bhwf-input]::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <form
+      data-bhwf-form
+      data-bhwf-project-id="pr-2053673118"
+      data-bhwf-api-key="tkn-c612976e6fa8460edcded1e98c95b1d17b9a16317576766c09ad443a46ce38d9"
+    >
+      <h1>Submit your issue</h1>
+
+      <label>Description</label>
+      <div class="bhwf-input-container">
+        <textarea
+          data-bhwf-input="description"
+          data-bhwf-counter
+          placeholder="Describe your issue as detailed as possible"
+        ></textarea>
+      </div>
+      <span data-bhwf-error-msg="description"></span>
+
+      <label>Steps to Reproduce</label>
+      <textarea
+        data-bhwf-input="stepsToReproduce"
+        placeholder="Describe the steps leading to the issue"
+      ></textarea>
+
+      <label>Attach Media</label>
+      <input type="file" data-bhwf-input="media" data-bhwf-dropzone multiple />
+
+      <button data-bhwf-button="submit">Submit</button>
+
+      <div data-bhwf-modal="loading">
+        <div class="bhwf-loader"></div>
+        <br />
+        <span data-bhwf-progress></span>
+        <span data-bhwf-progress-msg></span>
+      </div>
+
+      <div data-bhwf-modal="error">
+        <h2>Something went wrong!</h2>
+        <p>Your issue couldn't be sent right now</p>
+        <span data-bhwf-error-msg="api"></span>
+        <br />
+        <button data-bhwf-button="tryAgain">Try again</button>
+        <button data-bhwf-button="reset">Reset</button>
+      </div>
+
+      <div data-bhwf-modal="success">
+        <h2>All done!</h2>
+        <p>Thank you for submitting your issue</p>
+        <br />
+        <a data-bhwf-button="viewIssue" href="" target="_blank"
+          >View Your Issue</a
+        >
+        <button data-bhwf-button="reset">Submit another issue</button>
+      </div>
+    </form>
+  </body>
+</html>
