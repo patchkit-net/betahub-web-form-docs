@@ -141,7 +141,6 @@ form.on("progress", (data) => {
 form.on("apiError", (data) => {
   loadingModalElement.classList.remove("bhwf-modal-show");
   errorModalElement.classList.add("bhwf-modal-show");
-  console.log(data);
   if (data?.status !== undefined) {
     errorTextElement.innerText = data?.message || "";
   }
