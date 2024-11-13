@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BetaHub Web Form</title>
 
-    <script src="https://unpkg.com/betahub-web-form@1.*.*/dist/bhwf.js"></script>
+    <script src="./lib/bhwf.js"></script>
     <link
       rel="stylesheet"
       type="text/css"
-      href="https://unpkg.com/betahub-web-form@1.*.*/dist/bhwf.min.css"
+      href="./lib/bhwf.min.css"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="https://unpkg.com/betahub-web-form@1.*.*/dist/dropzone.min.css"
+      href="./lib/dropzone.min.css"
     />
 
     <link
@@ -79,6 +79,11 @@
       [data-bhwf-input]::-webkit-scrollbar-corner {
         background: transparent;
       }
+
+      [data-bhwf-form] {
+        --bhwf-button-bg-color: #40a695;
+        --bhwf-button-bg-color-hover: #307e79;
+      }
     </style>
   </head>
   <body>
@@ -108,7 +113,7 @@
       <label>Attach Media</label>
       <input type="file" data-bhwf-input="media" data-bhwf-dropzone multiple />
 
-      <button data-bhwf-button="submit">Submit</button>
+      <div data-bhwf-button="submit">Submit</div>
 
       <div data-bhwf-modal="loading">
         <div class="bhwf-loader"></div>
